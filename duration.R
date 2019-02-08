@@ -7,15 +7,16 @@ medianDuration = median(data$duration)
 ggplot(data, aes(duration)) +
   geom_histogram(binwidth = 10, fill = "#d79544") +
   geom_vline(xintercept = medianDuration, linetype="11") +
-  annotate("text", label = "Median = 9.5 minutes", x = medianDuration + 60, y = Inf, vjust = 1.25, hjust = 0) +
+  annotate("text", label = "Median\n(9 minutes, 34 seconds)", x = medianDuration + 30, y = Inf, vjust = 1, hjust = 0, 
+           lineheight = 1, size = rel(2)) +
   scale_y_continuous(expand = c(0,0)) +
-  scale_x_continuous(limits = c(60,60*60), breaks = c(60,seq(0,60*60, 60*15)), labels = function (x) { x / 60}, expand = c(0,0), name = "Duration (Minutes)") +
-  labs(title = "Average Ride Time") +
-  theme(axis.title.y = element_blank(),
+  scale_x_continuous(limits = c(60,60*60), breaks = c(60,seq(0,60*60, 60*15)), labels = function (x) { x / 60}, expand = c(0,0)) +
+  labs(title = "Average Ride Time", subtitle = "Distribution of Ride Times in Minutes") +
+  theme(axis.title = element_blank(),
         axis.text.y = element_blank(),
-        axis.ticks.y = element_blank(),
+        axis.ticks = element_blank(),
         panel.background = element_blank(),
-        plot.title = element_text(margin = margin(t = 0, r = 0, b = 24, l = 0, unit = "pt")))
+        plot.title = element_text(),
+        plot.subtitle = element_text(margin = margin(t = 0, r = 0, b = 24, l = 0, unit = "pt"), face = "italic"))
 
-ggsave("duration.pdf", width = 5.5, height = 2.75, unit = "in")
-ggsave("duration.png", width = 5.5, height = 2.75, dpi = 300, unit = "in")
+ggsave("_export/duration.png", width = 5.5, height = 2.75, dpi = 300, unit = "in")

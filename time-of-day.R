@@ -17,5 +17,4 @@ ggplot(data, aes(time)) +
         plot.subtitle = element_text(hjust = 0, face = "italic",
                                     margin = margin(t = 0, r = 0, b = 24, l = 0, unit = "pt")))
 
-ggsave("time-of-day.pdf", width = 5.5, height = 2.75, unit = "in")
-ggsave("time-of-day.png", width = 5.5, height = 2.75, dpi = 300, unit = "in")
+ggsave("_export/time-of-day.png", width = 5.5, height = 2.75, dpi = 300, unit = "in")
