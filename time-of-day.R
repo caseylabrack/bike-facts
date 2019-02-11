@@ -1,8 +1,9 @@
 library(tidyverse)
 library(lubridate)
 
-data = read_csv("201812-capitalbikeshare-tripdata.csv") %>% 
-  mutate(startDate = mdy_hm(startDate)) %>% 
+# data = read_csv("201812-capitalbikeshare-tripdata.csv") %>% 
+data = read_csv("data-2018.csv") %>% 
+  mutate(startDate = ymd_hms(startDate)) %>% 
   mutate(time = hour(startDate))
 
 ggplot(data, aes(time)) +
